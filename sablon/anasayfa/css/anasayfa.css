@@ -1,0 +1,355 @@
+@charset "utf-8";
+
+#menu
+{
+	width:20%;
+	float:left;
+	margin-top:2em;
+}
+
+#menu dd
+{
+	margin-left:1.5em;
+}
+
+#menu dt
+{
+	font-size:1.5em;
+	font-weight:bolder;
+}
+
+#menu li
+{
+	font-size:1.3em;
+	margin-top:0.4em;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+#icerik
+{
+	width:80%;
+	float:right;
+	margin-bottom: 2em;
+}
+
+#icerik #test_akisi
+{
+	width:70%;
+	float:left;
+}
+
+.akis
+{
+	width:100%;
+}
+
+.akis_yok
+{
+	height:6em;
+	text-align:center;
+}
+
+.akis_yok p
+{
+	font-size:1.9em;
+	color:gray;
+	margin-top:1em;
+}
+
+.akis_baslik
+{
+	font-size:1.4em;
+	font-weight:bolder;
+	margin-top:0.5em;
+	margin-bottom:0.2em;
+}
+
+.akis_testler
+{
+	margin-left:0.1em;
+	margin-right:0.1em;
+}
+
+.test
+{
+	padding:1em 1em 1em 1em;
+	width:45%;
+	margin-bottom:1em;
+	/* [disabled]height:8em; */
+}
+
+.test_resim_kutu
+{
+	background-color:black;
+	width:75px;
+	height:110px;
+}
+
+#test_akisi .test_bilgileri
+{
+	width:61%;
+	height:10.2em;
+	float:right;
+}
+
+#test_akisi .tb_etiket
+{
+	font-size:1.2em;
+	font-weight:bold;
+	text-align:left;
+}
+
+#test_akisi .tb_aciklama
+{
+	font-size:0.9em;
+	text-align:justify;
+	width:70%;
+}
+
+#test_akisi .test_alt_menu
+{
+	width:100%;
+	height:2em;
+	padding-top:0.3em;
+	padding-bottom:0.3em;
+	float:right;
+}
+
+#icerik #listeler
+{
+	width:21%;
+	float:right;
+	padding-top:1em;
+	padding-left:1em;
+	padding-bottom:1em;
+	padding-right:1em;
+}
+
+#icerik .liste
+{
+	margin-bottom:1.8em;
+}
+
+#icerik #listeler .liste_baslik
+{
+	font-size:1.5em;
+	font-weight:bolder;
+	margin-bottom:0.5em;
+}
+
+#icerik #listeler li
+{
+	font-size:1.2em;
+	list-style-type: decimal;
+	list-style-position: inside;
+	margin-bottom:0.3em;
+}
+
+#icerik #arama
+{
+	margin-top:1em;
+}
+
+#arama #arama_baslik
+{
+	font-weight:bolder;
+	font-size:1.5em;
+	font-family:"Times New Roman", Times, serif;
+	border-bottom:thin solid black;
+	padding-bottom:0.5em;
+	margin-bottom:0.5em;
+}
+
+#arama #arama_baslik span
+{
+	font-style:italic;
+	font-weight:lighter;
+}
+
+.sonuc
+{
+	width:40em;
+	margin-bottom:1em;
+}
+
+.sonuc:hover
+{
+	background-color:#DADBD7;
+}
+
+.sonuc_resim
+{
+	background-color: black;
+	height:11em;
+	width:7.5em;
+	float:left;
+}
+
+.sonuc .bilgiler
+{
+	padding-top:4em;
+	float:right;
+}
+
+.sonuc .bilgiler span
+{
+	display:inline-block;
+	font-size:1.3em;
+}
+
+.sonuc .bilgiler span.id
+{
+	width:5em;
+}
+
+.sonuc .bilgiler span.etiket
+{
+	width:15em;
+	font-weight:bold;
+}
+
+.sonuc .bilgiler span.durum
+{
+	font-weight:bold;
+	font-size:1.2em;
+}
+
+#icerik #test
+{
+	margin-top:1em;
+	font-family:"Times New Roman", serif;
+}
+
+#test #bilgiler
+{
+	font-size:1.5em;
+	margin-bottom:1em;
+}
+
+.btn_testi_baslat
+{
+	font-size:2em;
+}
+
+.soru
+{
+	height:35em;
+	padding-left:3em;
+	padding-top:1em;
+	padding-right:1em;
+	font-size:1.3em;
+}
+
+.soru_resim
+{
+	float:left;
+	width:10em;
+	height:15em;
+}
+
+.soru_icerik
+{
+	float:right;
+	width:38em;
+}
+
+.soru_metin
+{
+	font-size:1.5em;
+}
+
+.siklar div
+{
+	margin-bottom:0.5em;
+}
+
+.siklar label
+{
+	font-size:1.2em;
+}
+
+.siklar label span
+{
+	display:inline-block;
+	margin-top:-0.5em;
+}
+
+#test #soru_navigasyon
+{
+	margin-top:-2em;
+}
+
+#test #soru_navigasyon input
+{
+	font-size:1.1em;
+}
+
+#test #islemler
+{
+	margin-top:1.5em;
+	margin-bottom:2em;
+}
+
+#test #islemler li.aciklama
+{
+	font-size:1.2em;
+	margin-left:0.5em;
+	font-style:italic;
+	margin-bottom:1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

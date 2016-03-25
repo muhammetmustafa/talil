@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+#baslik
+{
+	font-size:1.6em;
+	font-weight:bold;
+	margin-bottom:1em;
+	margin-top:2em;
+}
+
+.ayar_menu li
+{
+	font-size:1.3em;
+	margin-top:0.2em;
+}
+
+.liste
+{
+	margin-top:2em;
+	padding-top:1em;
+}
+
+.liste table
+{
+	font-size:1.4em;
+	margin-left:1em;
+	margin-right:1em;
+}
+
+.liste table th
+{
+	text-align:left;
+}
+
+#testler th#etiket
+{
+	width:15%;
+}
+
+#testler th#aciklama
+{
+	width:40%;
+}
+
+#testler th#c_tarihi
+{
+	width:30%;
+}
+
+#testler th#kategori
+{
+	width:15%;
+}
+
+#istatistikler
+{
+	margin-top:2em;
+}
+
+#istatistikler p
+{
+	font-size:1.5em;
+}
+
+#gecmis th#tarih
+{
+	width:40%;
+}
+
+#gecmis th#olay
+{
+	width:55%;
+}
+
+#profil
+{
+	margin-top:2em;
+	width:90%;
+}
+
+#profil .p_bolum
+{
+	width:45%;
+	margin-top:0.8em;
+	margin-bottom:0.8em;
+}
+
+#profil .p_bolum_baslik
+{
+	font-size:1.5em;
+	font-weight:bolder;
+	margin-bottom:0.5em;
+}
+
+#profil #resim p
+{
+	font-size:1.3em;
+}
+
+#profil #resim img
+{
+	width:10em;
+	height:15em;
+	padding-bottom:1em;
+}
+
+#profil #resim input[type="button"]
+{
+	margin-bottom:1em;
+}
+
+#profil .bilgi_satir
+{
+	width:95%;
+	font-size:1.2em;
+	margin-bottom:0.8em;
+	text-align:left;
+}
+
+#profil .ozellik
+{
+	width:40%;
+	font-weight:bold;
+	margin-left:0.5em;
+}
+
+#profil .deger
+{
+	width:50%;
+}
+
+
+
+
+
+
+
+

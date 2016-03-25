@@ -1,0 +1,15 @@
+	<div id="kafa">
+    	<a href="admin.php" style="float:left;"><img src="sablon/kaynaklar/img/admin_logo.png" width="133" height="50" /></a>
+  		<div id="sag">
+        	<div id="baslik">
+        		ADMİN PANELİ 
+            </div>
+            <div id="kullanici">
+            	<div id="ad"> <?php if (isset($govde["kullanici_adi"])) echo $govde["kullanici_adi"]; ?> </div>
+          		<div id="menu">
+                	<input type="button" id="cikis" onclick="document.location='cikisyap.php'" value="Çıkış" class="siyah_dugme" />
+            		<input type="button" id="mesajlar" value="Mesajlar" class="siyah_dugme" />
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,76 @@
+<div id="duzenle">
+	<div class="islem_baslik">
+		<span>DÜZENLE</span>
+		<div class="islem_menu">
+			<input type="button" id="kaydet" value="Kaydet" class="dugme_islem" />
+			<input type="button" id="vazgec" value="Vazgeç" class="dugme_islem" />
+		</div>
+	</div>
+	<div class="form fl_tmr" id="test_bilgileri">
+		<div class="form_baslik fl_tmr">
+			<a id="gizle_goster" title="Bilgiler formunu gizle/goster">-</a>
+			<span class="_itele">TEST BİLGİLERİ</span>
+		</div>
+		<div class="_uyari_"></div>
+		<div class="fl_tmr">
+			<div class="form_alan" id="resim">
+				<div class="alan_baslik"><a href="javascript:void(0);" id="resim_ekle">Resim Seç</a></div>
+				<img src="<?php echo $test["src"];?>" height="<?php echo $test["yukseklik"];?>" width="<?php echo $test["genislik"];?>" class="_gerekli_"/>
+			</div>
+			<div class="form_alan" id="etiket">
+				<div class="alan_baslik">Etiket</div>
+				<textarea  class="_gerekli_"><?php echo $test["etiket"];?></textarea>
+			</div>
+			<div class="form_alan" id="aciklama">
+				<div class="alan_baslik">Açıklama</div>
+				<textarea  class="_gerekli_"><?php echo $test["aciklama"];?></textarea>
+			</div>
+			<div class="form_alan" id="zorluk">
+				<div class="alan_baslik">Zorluk</div>
+				<select id="zorluk"  class="_gerekli_">
+					<option value="0">Seçiniz...</option>
+					<?php foreach($zorluk as $z):?>
+						<option value="<?php echo $z["deger"]; ?>" <?php if ($test["zorluk"]==$z["deger"]) echo "selected";?>><?php echo $z["icerik"];?></option>
+					<?php endforeach;?>
+				</select>
+			</div>
+			<div class="islemler"></div>
+		</div>
+	</div>
+	<div class="form fl_tmr" id="sorular">
+		<div class="form_baslik fl_tmr"><a id="gizle_goster" title="Sorular formunu gizle/goster">-</a>
+		<span class="_itele">SORULAR</span>
+		</div>
+		<div>
+			<div class="_uyari_"></div>
+			<div class="form_alan" id="soru_yonetimi">
+				<div class="alan_baslik">Soru</div>
+				<div class="alan_alt_baslik"></div>
+				<textarea id="soru" class="_gerekli_"></textarea>
+		   
+				<div class="alan_baslik">Zorluk </div>
+				<select id="zorluk" class="_gerekli_"> 
+					<option value="0" selected>Seçiniz...</option>
+						<?php foreach($zorluk as $z):?>
+							<option value="<?php echo $z["deger"];?>"><?php echo $z["icerik"];?></option>
+						<?php endforeach;?>
+				</select>
+				<input type="checkbox"/>Sabit
+			</div>
+			<div class="form_alan" id="sik_yonetimi">
+				<div class="alan_baslik">Şıklar</div>
+				<div id="sik_menu">
+					<input type="button" class="siyah_dugme dugme_kck" value="Şık Ekle" id="sik_ekle"/>
+					<input type="button" class="siyah_dugme dugme_kck" value="Evet/Hayır" id="evet_hayir"/>
+					<input type="checkbox"/>Sabit
+				</div>
+				<div id="siklar"></div>
+			</div>
+			<div class="islemler">
+				<input type="button" class="siyah_dugme" value="Önceki Soru" id="onceki_soru"/>
+				<input type="button" class="siyah_dugme" value="Sonraki Soru" id="sonraki_soru"/>
+				<input type="button" class="siyah_dugme" value="Kaydet ve İlerle" id="kaydet_ilerle"/>
+			</div>
+		</div>
+	</div>
+</div><!-- İşlem -->

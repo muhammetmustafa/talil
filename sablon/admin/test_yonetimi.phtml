@@ -1,0 +1,75 @@
+<?php 
+	require_once 'essek/sql/class.Mysql.php';
+	
+	$talil = new Mysql("talil");
+	
+	Mysql::sql($talil)
+	->select("id as deger, etiket as icerik")
+	->from("zorluk")
+	->calistir();
+	
+	if ($talil->etkilenenSatirSayisi > 0)
+	{
+		$zorluk = $talil->sonuc(true)->alMesaj();
+	}
+?>
+	
+	<?php include 'baslik.phtml'; ?>
+    
+    <div id="gobek">
+    	
+    	<?php include 'menu.phtml'; ?>
+    
+	<div id="icerik">
+		<div id="arama">
+    		<div class="islem_baslik">
+    			<span>RESİM TESTLERİ</span>
+				<div class="islem_menu">
+	            	<input type="button" onclick="document.location='admin.php'" value="Vazgeç" class="dugme_islem" />
+	            </div>
+            </div>
+            <div class="form fl_tmr" id="bilgiler">
+				<div class="form_baslik fl_tmr">
+					<a id="gizle_goster" title="Arama formunu gizle/goster">-</a>
+					<span class="_itele">ARAMA</span>
+				</div>
+				<div class="_uyari_"></div>
+                <div class="fl_tmr">
+                    <div class="form_alan" id="etiket">
+                    	<div class="alan_baslik">Etiket</div>
+                        <textarea class="_gerekli_"></textarea>
+                    </div>
+                    <div class="form_alan" id="aciklama">
+                    	<div class="alan_baslik">Açıklama</div>
+                        <textarea></textarea>
+                    </div>
+                    <div class="form_alan" id="olusturulma_tarihi">
+                    	<div class="alan_baslik">Oluşturulma Tarihi</div>
+                        <div class="alan_alt_baslik">Başlangıç:</div>
+                        <input type="text" id="baslangic"/>
+                        <div class="alan_alt_baslik">Bitiş:</div>
+                        <input type="text" id="bitis"/>
+                    </div>
+                	<div class="form_alan" id="zorluk">
+                    	<div class="alan_baslik">Zorluk</div>
+                    	<select>
+	                        <option value="0" selected>Seçiniz...</option>
+	       	    			<?php foreach($zorluk as $z):?>
+	       	    				<option value="<?php echo $z["deger"]; ?>"><?php echo $z["icerik"];?></option>
+	       	    			<?php endforeach;?>
+       	    			</select>
+                    </div>
+                    <div class="islemler">
+                    	<input type="button" class="siyah_dugme" value="Ara" id="ara"/>
+                    </div>
+                </div>
+            </div>
+		</div>	
+	</div><!-- İçerik -->
+        
+        <?php include 'altbilgi.phtml'; ?>
+        
+    </div><!-- Göbek -->
+    
+</body>
+</html>

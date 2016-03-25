@@ -1,0 +1,40 @@
+<div id="ust_arac_cubugu" class="fl_tmr arac_cubugu">
+	<div id="logo_t">
+		<a href="/talil/home.php"><img src="sablon/kaynaklar/img/t.png"/></a>
+	</div>
+	<div id="uac_menu" class="fl_tmr">
+		<div class="arama_kutu fl_sl gn_40">
+			<form action="arama.php" method="get">
+				<input type="text" name="aranan" class="txt_arama rnk_inpt_txt_arka"/>
+				<input type="submit" value="" class="btn_arama el_goster rnk_inpt_txt_arka" title="Testlerde ara"/>
+			</form>
+		</div>
+		<ul id="gosterge">
+			<li class="tabela tbl_pd rnk_tbl_arka uac_ic_ktlr_mrgn">
+				<div class="tbl_bslk">Puan</div>
+				<div class="tbl_dgr"><?php echo Oturum::al("kullanici")["puan"];?></div>
+			</li>
+			<li class="tabela tbl_pd rnk_tbl_arka uac_ic_ktlr_mrgn">
+				<div class="tbl_bslk">Seviye</div>
+				<div class="tbl_dgr"><?php echo Oturum::al("kullanici")["seviye"];?></div>
+			</li>
+			<li id="klnc_yn_kt" class="rnk_tbl_arka uac_ic_ktlr_mrgn">
+				<div id="klnc_resim"><img /></div>
+				<div id="yn_kt" class="fl_tmr">
+					<div id="klnc_adi" class="rnk_klnc_yn_kt_klnc_adi el_goster"><?php echo Oturum::al("kullanici")["kullanici_adi"];?></div>
+					<ul class="tbl_pd">
+						<li id="msj" title="Mesajlar"></li>
+						<li id="ayr" title="Ayarlar"></li>
+						<li id="cks" title="Çıkış" onclick="document.location='cikisyap.php'"></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="ust_menu fl_tmr arac_cubugu">
+	<ul>
+		<li>Favoriler</li>
+		<li>En Çok Çözülenler</li>
+	</ul>
+</div>

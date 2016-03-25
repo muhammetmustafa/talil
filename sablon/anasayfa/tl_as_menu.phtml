@@ -1,0 +1,32 @@
+<?php 
+$talil = new Mysql('talil');
+try 
+{
+	//Son Eklenenlerin alınması
+	Mysql::sql($talil)
+	->select('*')
+	->from('test_kategorileri')
+	->calistir();
+	
+	if ($talil->etkilenenSatirSayisi > 0)
+	{
+		$kategoriler = $talil->sonuc(true)->alMesaj();
+	}
+} 
+catch (exVeritabani $hata){}
+?>
+<div id="menu">
+	<dl>
+		<dt>Kategoriler</dt>
+		<dd>
+			<ul>
+				<?php 
+					foreach($kategoriler as $k)
+					{
+						echo '<li>'.$k['kategori'].'</li>';
+					}
+				?>
+			</ul>
+		</dd>
+	</dl>
+</div>

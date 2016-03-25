@@ -1,0 +1,108 @@
+<?php 
+try 
+{
+	$talil = new Mysql('talil');
+	$id = $_GET['id'];
+	
+	if ($id == "")
+	{
+		header("Location: home.php");
+	}
+	
+	//id'nin kontrol edilmesi
+	Mysql::sql($talil)
+	->select('id')
+	->from('testler')
+	->where()
+	->filtre('id', $id)
+	->calistir();
+	
+	if ($talil->etkilenenSatirSayisi <= 0)
+	{
+		//Verilen id ile eşleşen test bulunamadı
+		//TODO: Bu sayfada hata gösterilebilir. Ama kim uğraşacak
+		header("Location: home.php");
+	}
+	
+	//Test bilgilerinin alınması
+	Mysql::sql($talil)
+	->select('t.etiket AS testEtiket, concat(d.dizin, d.ad) AS img, d.yukseklik AS y, d.genislik AS g, k.kategori')
+	->from('testler AS t, dosyalar AS d, test_kategorileri AS k')
+	->where()
+	->filtre('t.id', $id)->ve()
+	->filtreString('t.id = d.test_id')->ve()
+	->filtreString('t.kategori_id = k.id')->ve()
+	->filtreString('d.ad LIKE "%parmak%"')->ve()
+	->filtreString('d.durum_id = 2')
+	->calistir();
+	
+	if ($talil->etkilenenSatirSayisi > 0)
+	{
+		$test = $talil->sonuc()->alMesaj();
+	}
+} 
+catch (exVeritabani $hata)
+{
+	
+}
+
+include_once 'tl_as_ust.phtml';
+?>
+
+<div id="dolma" class="arac_cubugu fl_tmr">
+	<?php include_once 'tl_as_menu.phtml';?>
+	<div id="icerik">
+		<div id="test">
+			<div id="bilgiler">
+				<span><b>ID: </b>#<?php echo $id;?></span>
+				<span class="kydr_sg_4"><b>Test: </b><?php echo $test["testEtiket"];?></span>
+				<span class="kydr_sg_4"><b>Kategori: </b><?php echo $test["kategori"];?></span>
+				<span class="kydr_sg_4"></span>
+			</div>
+			<div class="soru kutu">
+				<div class="soru_resim">
+					<img src="<?php echo $test["img"];?>">
+				</div>
+				<div class="soru_icerik gizle">
+					<p id="soru_konum"><b>1</b>/24</p>
+					<p class="soru_metin">umieyk amkuygğmk ahuikeylakm uiymek auygğnhk uikay umlikeamlu?</p>
+					<div class="siklar">
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uieka ylmuikeyaml kuyilmka yuimle</span></label></div>
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uiüi ea kuyilmka yuimle</span></label></div>
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uieüyilmka yuimle</span></label></div>
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uieka ylmuikeyaml kuyilmka yuimle</span></label></div>
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uiüi ea kuyilmka yuimle</span></label></div>
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uieüyilmka yuimle</span></label></div>
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uieka ylmuikeyaml kuyilmka yuimle</span></label></div>
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uiüi ea kuyilmka yuimle</span></label></div>
+						<div><label><input type="radio" name="cevap"/><span><b>A) </b>uieüyilmka yuimle</span></label></div>
+					</div>
+				</div>
+				<div class="soru_icerik">
+					<p class="soru_metin">
+						Eğer <i>Talil'e</i> yeniyseniz başlamadan önce burayı okumanızı öneririm.<br/>
+						Aşağıdaki "Başla"ya basınca gördüğünüz resim ile alâkalı sorular sorulacak. <br/>
+						Yapmanız gereken talil (tümevarım, çıkarım, deduction) ile akıllı tahminler gerçekleştirmek.<br/>
+						Kolay gelsin! 
+					</p>
+					<div class="t_orta">
+						<input type="button" class="btn_gnl btn_testi_baslat el_goster" value="Başla" id="testi_baslat"/>
+					</div>
+				</div>
+			</div>
+			<div id="soru_navigasyon" class="rnk_mn_arka t_orta gizle">
+				<input type="button" class="btn_gnl el_goster" value="Önceki Soru"/>
+				<input type="button" class="btn_gnl el_goster" value="Sonraki Soru"/>
+			</div>
+			<div id="islemler" class="gizle">
+				<ul>
+					<li><input type="button" class="btn_gnl el_goster" value="Cevaplarımı Kaydet"/></li>
+					<li class="aciklama">* test çözümüne daha sonra devam etmeniz için verdiğiniz cevapları kaydededer.</li>
+					<li><input type="button" class="btn_gnl el_goster" value="Cevaplarımı Gönder"/></li>
+					<li class="aciklama">* cevaplarınızı değerlendirmek üzere gönderir. Bu işlemi geri alamazsınız.</li>
+					<li><input type="button" class="btn_gnl el_goster" value="Vazgeç"/></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

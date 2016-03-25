@@ -1,0 +1,78 @@
+<?php 
+try 
+{
+	$talil = new Mysql('talil');
+	$aranan = $_GET['aranan'];
+	$sonuclar = array();
+	$sonuc_miktari = 0;
+	
+	if ($aranan == "")
+	{
+		header("Location: home.php");
+	}
+	
+	//Arama miktarının alınması
+	Mysql::sql($talil)
+	->select('count(t.id) AS sonuc_miktari')
+	->from('testler AS t, dosyalar AS d')
+	->where()
+	->filtre('t.etiket', '%'.$aranan.'%', 'LIKE')->ve()
+	->filtreString('t.id = d.test_id')->ve()
+	->filtreString('d.ad LIKE "%arama%"')->ve()
+	->filtreString('d.durum_id = 2')
+	->limit(0, 10)
+	->calistir();
+	
+	if ($talil->etkilenenSatirSayisi > 0)
+	{
+		$sonuc_miktari = $talil->sonuc()->alMesaj()["sonuc_miktari"];
+	}
+	
+	//Arama sonuçlarının alınması
+	Mysql::sql($talil)
+	->select('t.id AS testID, t.etiket, concat(d.dizin, d.ad) AS img, d.yukseklik AS y, d.genislik AS g')
+	->from('testler AS t, dosyalar AS d')
+	->where()
+	->filtre('t.etiket', '%'.$aranan.'%', 'LIKE')->ve()
+	->filtreString('t.id = d.test_id')->ve()
+	->filtreString('d.ad LIKE "%arama%"')->ve()
+	->filtreString('d.durum_id = 2')
+	->limit(0, 10)
+	->calistir();
+	
+	if ($talil->etkilenenSatirSayisi > 0)
+	{
+		$sonuclar = $talil->sonuc(true)->alMesaj();
+	}
+} 
+catch (exVeritabani $hata){}
+?>
+<?php include_once 'tl_as_ust.phtml';?>
+<div id="dolma" class="arac_cubugu fl_tmr">
+	<?php include_once 'tl_as_menu.phtml'; ?>
+	<div id="icerik">
+		<div id="arama">
+			<div id="arama_baslik">
+				<span>"<?php echo $aranan;?>"</span> Arama Sonuçları (<?php echo $sonuc_miktari;?>)
+			</div>
+			<div id="sonuclar">
+				<?php foreach($sonuclar as $sonuc):?>
+				<div class="sonuc fl_tmr">
+					<div class="sonuc_resim">
+						<img src="<?php echo $sonuc["img"];?>"
+							 style="margin-top:<?php echo (110-$sonuc["y"])/2;?>px;margin-left:<?php echo (75-$sonuc["g"])/2;?>px;"/>
+					</div>
+					<div class="bilgiler">
+						<span class="id">#<?php echo $sonuc["testID"]?></span>
+						<span class="etiket"><?php echo $sonuc["etiket"]?></span>
+						<input type="button" class="btn_gnl" value="Çöz"/>
+					</div>
+	 			</div>
+	 			<?php endforeach;?>
+			</div>
+			<?php if ($sonuc_miktari > 10):?>
+			<input type="button" class="btn_gnl" value="Daha fazla..."/>
+			<?php endif;?>
+		</div>
+	</div>
+</div>

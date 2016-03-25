@@ -1,0 +1,85 @@
+<div id="bas" class="fl_tmr genislik">
+	<div id="bas_sol" class="fl_sl">
+		<a href="/talil" title="Talil" class="rnk_logo">TAL'İL*</a>
+	</div>
+	<div id="bas_sag" class="fl_sg">
+		<form id="giris" class="fl_tmr" action="index.php" method="post">
+			<div><label for="k_adi_email">Kullanıcı Adı/Email:</label><input type="text" name="k_adi_email" class="_gerekli_" value="<?php echo Post::al('k_adi_email');?>"/></div>
+			<div><label for="grs_sifre">Şifre:</label><input type="password" name="grs_sifre" class="_gerekli_"/></div>
+			<div id="grs_dgm">
+				<label class="fl_nn"><input type="checkbox" name="beni_hatirla" id="beni_hatirla" class="fl_nn"/>Beni Hatırla</label>
+				<input type="submit" value="Giriş" id="kayit_ol"/>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="_uyari_ _uyari_giris_">
+	<?php if (isset($govde["boslar"]['k_adi_email'])) echo $govde["boslar"]['k_adi_email'];?>
+	<?php if (isset($govde["boslar"]['grs_sifre'])) echo $govde["boslar"]['grs_sifre'];?>
+	<?php if (isset($govde["uyari"])) echo $govde["uyari"];?>
+</div>
+<div id="indx_icerik" class="genislik">
+	<div id="hos" class="kutu fl_tmr rnk_mtn">
+		<div id="hos_sol" class="fl_sl">
+			<h1>Hoşgeldiniz</h1>
+			<p>Talil, “leb” demeden “çorum” diyebilenlerin platformudur. 
+			Burada çeşitli testlerle yeteneklerinizi keşfedebilirsiniz ve geliştirebilirsiniz.
+			</p>
+		</div>
+		<div id="hos_sag" class="fl_sg">
+			<p id="form_baslik">Kayıt</p>
+			<div class="_uyari_">
+				<?php if (isset($govde["boslar"]["k_adi"])) echo $govde["boslar"]["k_adi"];?>
+          		<?php if (isset($govde["k_adi_hata"])) echo $govde["k_adi_hata"];?>
+          		
+          		<?php if (isset($govde["boslar"]["sifre"])) echo $govde["boslar"]["sifre"];?>
+          		<?php if (isset($govde["boslar"]["email"])) echo $govde["boslar"]["email"];?>
+          		<?php if (isset($govde["email_hata"])) echo $govde["email_hata"];?>
+          		
+			</div>
+			<form id="kayit" action="kayit.php" method="post">
+				<div><label for="k_adi">Kullanıcı Adı:</label><input type="text" name="k_adi" class="_gerekli_" value="<?php echo Post::al("k_adi");?>"/></div>
+				<div><label for="email">Email:</label> <input type="text" name="email" class="_gerekli_" value="<?php echo Post::al("email");?>"/></div>
+				<div><label for="sifre">Şifre:</label><input type="password" name="sifre" class="_gerekli_" value="<?php echo Post::al("sifre");?>"/></div>
+				<div><label for="sifre_tekrar">Şifre Tekrar:</label><input type="password" name="sifre_tekrar" class="_gerekli_" value="<?php echo Post::al("sifre_tekrar");?>"/></div>
+				<div><input type="submit" value="Kayıt" id="kayit_ol"/></div>
+			</form>
+		</div>
+	</div>
+	<div id="altbilgi" class="kutu">
+		<div id="bolumler" class="fl_tmr">
+			<div class="bolum fl_sl">
+				<div class="blm_baslik rnk_ab_bslk">
+					Hakkımızda
+				</div>
+				<ul>
+					<li><a href="javascript:void(0);">Vizyonumuz</a></li>
+					<li><a href="javascript:void(0);">Misyonumuz</a></li>
+					<li><a href="javascript:void(0);">Tarihçe</a></li>
+					<li><a href="javascript:void(0);">Şirket Yapısı</a></li>
+				</ul>
+			</div>
+			<div class="bolum fl_sg">
+				<div class="blm_baslik rnk_ab_bslk">
+					İletişim
+				</div>
+				<ul>
+					<li><a href="javascript:void(0);">Yorum</a></li>
+					<li><a href="javascript:void(0);">Adres</a></li>
+					<li><a href="javascript:void(0);">İnsan Kaynakları</a></li>
+					<li><a href="javascript:void(0);">Site Haritası</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="ozulhak">
+			2014 &copy; Muhammet Mustafa Çalışkan 
+		</div>
+	</div>
+	<div id="sozluk" class="">
+		
+		* isim, eskimiş (ta:lil) Arapça ta¤l³l<br /><br />
+		1 .   Sebep gösterme.<br />   
+		2 .   <i>felsefe</i>  Tümden gelim.
+		
+	</div>
+</div>

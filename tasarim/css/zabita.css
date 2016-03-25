@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+/* Stil adını değiştirme
+	zabita.js
+ */
+.hata_form
+{
+	border: solid thin rgb(255, 0, 48);
+}
+
+/* Stil adını değiştirme
+	zabita.js
+ */
+._zabita_hata_
+{
+	color: #E7C4C8;
+	background-color: #AF021E;
+	font-family: sans-serif;
+	font-weight: lighter;
+	font-size: 1.2em;
+	font-style: italic;
+	text-align:center;
+}
+
+/* Stil adını değiştirme
+	zabita.js
+ */
+._zabita_basari_
+{
+	color: #093;
+	background-color:#B0F126;
+	font-family: sans-serif;
+	font-weight: lighter;
+	font-size: 1.2em;
+	font-style: italic;
+	text-align:center;
+}

@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+#baslik
+{
+	font-size:1.6em;
+	font-weight:bold;
+	margin-bottom:1em;
+	margin-top:2em;
+}
+
+#mesaj_menu li
+{
+	font-size:1.3em;
+	margin-top:0.2em;
+}
+
+#mesajlar
+{
+	width:75%;
+}
+
+#mesajlar #liste
+{
+	margin-top:2em;
+	padding-top:1em;
+}
+
+#mesajlar #liste table
+{
+	font-size:1.4em;
+	margin-left:1em;
+	margin-right:1em;
+}
+
+#mesajlar #liste table th
+{
+	text-align:left;
+}
+
+th#sec, th#sira
+{
+	width:5%;
+}
+
+th#gonderen
+{
+	width:20%;
+}
+
+th#tarih, th#konu
+{
+	width:30%;
+}
+
+th#durum
+{
+	width:10%;
+}
+
+#mesajlar #liste #islem
+{
+	margin-left:1em;
+	margin-top:0.8em;
+	margin-bottom:0.8em;
+}
+
+#mesajlar #liste #islem input,select
+{
+	font-size:1em;
+}
+
+#mesajlar #liste #mesaj_navigasyon div
+{
+	display:inline-block;
+}
+
+#mesajlar #icerik
+{
+	padding:1em 1em 1em 1em;
+	margin-top:1em;
+	margin-bottom:2em;
+}
+
+#mesajlar #icerik p
+{
+	font-size:1.4em;
+}
+
+
+
+
+
+
+
+

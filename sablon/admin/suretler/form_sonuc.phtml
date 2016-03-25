@@ -1,0 +1,123 @@
+<div class="form fl_tmr" id="sonuclar">
+	<div class="form_baslik fl_tmr">
+		<a id="gizle_goster" title="Sonuçlar formunu gizle/goster">-</a>
+		<span class="_itele">SONUÇLAR: (<?php if (isset($sonuc_miktari)) echo $sonuc_miktari;?> adet)</span>
+	</div>
+	<div class="_uyari_"></div>
+	<div class="fl_tmr">
+		<table>
+		<thead>
+		<tr>
+			<th></th>
+			<th>ID</th>
+			<th>Etiket</th>
+			<th width="190">Açıklama</th>
+			<th>Oluşturulma Tarihi</th>
+			<th>Zorluk</th>
+			<th width="100"></th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($sonuc as $satir):?>
+			<tr class="sonuc" id="<?php echo $satir["testID"];?>">
+				<td width="75" height="110">
+					<img src="<?php echo $satir["resim_dizini"].$satir["resim_adi"];?>" 
+						 width="<?php echo $satir["genislik"];?>" 
+						 height="<?php echo $satir["yukseklik"];?>"/>
+				</td>
+				<td><?php echo $satir["testID"];?></td>
+				<td><?php echo $satir["etiket"];?></td>
+				<td><?php echo $satir["aciklama"];?></td>
+				<td><?php echo $satir["tarih"];?></td>
+				<td><?php echo $satir["zetiket"];?></td>
+				<td class="">
+					<input type="button" class="kiremit_dugme" id="duzenle_test" value="Düzenle"/>
+					<input type="button" class="kiremit_dugme" id="testi_sil" value="Testi Sil"/>
+					<input type="button" class="kiremit_dugme" id="bilgiler" value="Bilgiler"/>
+				</td>
+			</tr>
+		<?php endforeach;?>
+		</tbody>
+		</table>
+		<div id="sayfalar">
+			<span id="once">
+				<a href="javascript:void(0);" id="en_ilk" style="margin-right:1em;"> &lt;&lt; </a>
+				<a href="javascript:void(0);" id="onceki"> &lt; </a>
+			</span>
+		
+			<span id="numaralar">
+				<?php				
+				
+					$sayfa_miktari = ceil($sonuc_miktari / MAKS_SONUC);
+					
+					$kenardakiler = MAKS_SAYFA - 1;
+					$sayfalar = array($test->sayfa);
+					
+					if ($kenardakiler % 2 == 1)
+					{
+						$soldan = $sagdan = ($kenardakiler - 1) / 2;
+						$sagdan++;
+					}
+					else 
+					{
+						$soldan = $sagdan = $kenardakiler / 2;
+					}
+					
+					$sagdan_olmayan_sayisi = 0;
+					$soldan_olmayan_sayisi = 0;
+					
+					for ($i = 1; $i <= $sagdan; $i++)
+					{
+						if ($test->sayfa + $i > $sayfa_miktari) { $sagdan_olmayan_sayisi++; }
+						else { $sayfalar[] = $test->sayfa + $i; }
+					}
+					
+					for ($i = 1; $i <= $soldan; $i++)
+					{
+						if ($test->sayfa - $i < 1) { $soldan_olmayan_sayisi++; }
+						else { array_unshift($sayfalar, $test->sayfa - $i); }
+					}
+					
+					if ($sagdan_olmayan_sayisi > 0)
+					{
+						$soldan_bas = reset($sayfalar);
+						 
+						for ($i = 1; $i <= $sagdan_olmayan_sayisi; $i++)
+						{
+							if ($soldan_bas - $i < 1) { $soldan_olmayan_sayisi++; }
+							else { array_unshift($sayfalar, $soldan_bas - $i); }
+						}
+					}
+					
+					if ($soldan_olmayan_sayisi > 0)
+					{
+						$sagdan_bas = end($sayfalar);
+						 
+						for ($i = 1; $i <= $soldan_olmayan_sayisi; $i++)
+						{
+							if ($sagdan_bas + $i > $sayfa_miktari) { $sagdan_olmayan_sayisi++; }
+							else { $sayfalar[] = $sagdan_bas + $i; }
+						}	
+					}
+					
+					foreach ($sayfalar as $sayfa)
+					{
+						if ($sayfa == $test->sayfa)
+						{
+							echo '<span id="sayfa">'.$sayfa.'</span>';
+						}
+						else
+						{
+							echo '<span><a href="javascript:void(0);">'.$sayfa.'</a></span>';
+						}
+					}
+				?>
+			</span>
+		
+			<span id="sonra">
+				<a href="javascript:void(0);" id="sonraki" style="margin-right:1em;" > &gt; </a>
+				<a href="javascript:void(0);" id="en_son"> &gt;&gt; </a>
+			</span>
+		</div>
+	</div>
+</div>

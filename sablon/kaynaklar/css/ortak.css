@@ -1,0 +1,302 @@
+@charset "utf-8";
+
+.fl_tmr { overflow:auto; }
+.fl_sg { float:right; }
+.fl_sl { float:left; }
+.fl_nn { float:none; }
+
+.kydr_sg_4 { margin-left:4em; }
+.kydr_sg_1 { margin-left:1em; }
+
+.gn_40 { width:40%; }
+.gn_45 { width:45%; }
+.gn_50 { width:50%; }
+.gn_55 { width:55%; }
+
+.t_orta { text-align:center; }
+.pdng_1 { padding: 1em 1em 0 1em; }
+.el { cursor:pointer; }
+.el_goster:hover { cursor:pointer; }
+.rnk_ab_bslk { color: #E1B742; }
+.rnk_logo, .rnk_logo:visited { color: #616E52; }
+.kutu { border: thin solid #E6E6E6; }
+.gizle { display:none;}
+
+.rnk_mtn, 
+#menu li
+{
+	color: #666666
+}
+
+.rnk_inpt_lbl
+{
+	color: #808080;
+}
+
+.rnk_inpt_txt_arka, 
+.rnk_tbl_arka, 
+.rnk_mn_arka,
+.ust_menu
+{
+	background-color: #F2F2F2
+}
+.rnk_btn_arka, 
+.rnk_klnc_yn_kt_klnc_adi:hover,
+.ust_menu li:hover,
+.rnk_mn_filtre_dgm_arka
+{
+	background-color: #E6E6E6;
+}
+.rnk_mn_aktif
+{
+	background-color: #CCCCCC;
+}
+
+.rnk_frm_bslk,
+.rnk_ab_lnk,
+#menu dt
+{
+	color: #4D4D4D;
+}
+
+.btn_gnl
+{
+	background-color: #E6E6E6;
+	border: thin solid #7E7872;
+	font-weight: 900;
+}
+
+.btn_gnl:active
+{
+	background-color: #09F;
+}
+
+.uac_yks
+{
+	height:5em;
+}
+
+/*Üst araç çubuğu iç kutular margin*/
+.uac_ic_ktlr_mrgn
+{
+	margin-left:0.3em;
+}
+
+.arac_cubugu
+{
+	width: 90em;
+	margin: 0 auto;
+	margin-top: 1em;
+}
+
+#ust_arac_cubugu
+{
+	height:4em;	
+}
+
+#ust_arac_cubugu #logo_t
+{
+	width:5%;
+	float:left;
+}
+
+#ust_arac_cubugu #uac_menu
+{
+	float:right;
+	width:95%;
+	margin-top:0.4em;
+}
+
+.btn_arama
+{
+	width:13px;
+	height:17px;
+	margin-left:-2em;
+	position: relative;
+	top: 0.3em;
+	border:none;
+	background-image: url(../img/ara.png);
+}
+
+.btn_arama:focus
+{
+	outline:none;
+}
+
+.txt_arama
+{
+	width:85%;
+	height:2.2em;
+	border:thin solid #D4BFAA;
+	padding-left:0.4em;
+	padding-right:2.5em;
+}
+
+#uac_menu #gosterge
+{
+	float:right;
+	width:60%;
+}
+
+#uac_menu #gosterge li
+{
+	height:2.2em;
+	float:left;
+}
+
+#uac_menu .tabela
+{
+	width:23%;
+}
+
+#uac_menu .tbl_pd
+{
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+	padding-left:0.2em;
+	padding-right:0.2em;
+}
+
+#uac_menu .tbl_bslk
+{
+	float:left;
+	font-weight: bolder;
+	text-align: center;
+	width: 30%;
+	margin-top:0.3em;
+	font-size:1em;
+}
+
+#uac_menu .tbl_dgr
+{
+	float:right;
+	text-align: center;
+	width: 70%;
+	font-size:1.5em;
+	font-family:"Candara";
+}
+
+#uac_menu li#klnc_yn_kt
+{
+	width:50%;
+	height:auto;
+}
+
+#uac_menu li#klnc_yn_kt #klnc_resim
+{
+	float:left;
+}
+
+#uac_menu li#klnc_yn_kt #klnc_resim img
+{
+	width:26px;
+	height:32px;
+}
+
+#uac_menu li#klnc_yn_kt #yn_kt
+{
+	width:89%;
+	float:right;
+}
+
+#uac_menu li#klnc_yn_kt #klnc_adi
+{
+	width:58%;
+	font-weight:bolder;
+	float:left;
+	text-align:center;
+	font-size:1.5em;
+	height:1.7em;
+	padding-top:0.4em;
+}
+
+#uac_menu li#klnc_yn_kt ul
+{
+	width:36%;
+	float:right;
+	margin-top:0.1em;
+}
+
+#uac_menu li#klnc_yn_kt li
+{
+	width:20px;
+	height:20px;
+	margin-right:0.5em;
+	text-align:center;
+	overflow:hidden;
+}
+
+#uac_menu li#klnc_yn_kt li#msj
+{
+	background-image: url(../img/msj_sb.png);	
+}
+
+#uac_menu li#klnc_yn_kt li#msj:hover
+{
+	background-image: url(../img/msj.png);	
+}
+
+#uac_menu li#klnc_yn_kt li#ayr
+{
+	background-image: url(../img/ayr_sb.png);	
+}
+
+#uac_menu li#klnc_yn_kt li#ayr:hover
+{
+	background-image: url(../img/ayr.png);	
+}
+
+#uac_menu li#klnc_yn_kt li#cks
+{
+	background-image: url(../img/cks_sb.png);	
+}
+
+#uac_menu li#klnc_yn_kt li#cks:hover
+{
+	background-image: url(../img/cks.png);	
+}
+
+#uac_menu li#klnc_yn_kt li:hover,
+.ust_menu li:hover
+{
+	cursor:pointer;
+}
+
+.ust_menu
+{
+	margin-top:1em;
+	height:3em;
+}
+
+.ust_menu li
+{
+	float:left;
+	text-align:left;
+	font-size:1.5em;
+	font-weight:bolder;
+	padding: 0.3em 0.3em 0.4em 0.3em;
+	margin-right:0.3em;
+}
+
+.navigasyon
+{
+	margin-top:1em;
+	font-size:1.2em;
+	background-color:#CCCCCC;
+}
+
+.navigasyon div
+{
+	display:inline;
+}
+
+.nav_bosluk
+{
+	margin-left:0.9em;
+}
+
+.nav_sayilar_bosluk
+{
+	margin-left:1em;
+	margin-right:1em;
+}

@@ -1,0 +1,137 @@
+﻿<?php 
+$talil = new Mysql('talil');
+try 
+{
+	//Son Eklenenlerin alınması
+	Mysql::sql($talil)
+	->select('t.id, t.etiket, t.aciklama, concat(d.dizin, d.ad) AS img, d.yukseklik AS y, d.genislik AS g')
+	->from('testler AS t, dosyalar AS d')
+	->where()
+	->filtreString('t.id = d.test_id')->ve()
+	->filtreString('d.ad LIKE "%arama%"')->ve()
+	->filtreString('d.durum_id = 2')
+	->orderby('t.id')->azalan()->limit(0, 4)->calistir();
+	
+	if ($talil->etkilenenSatirSayisi > 0)
+	{
+		$son_eklenenler = $talil->sonuc(true)->alMesaj();
+	}
+	
+	//En Çok Çözülenlerin alınması
+	Mysql::sql($talil)
+	->select('t.id, t.etiket, t.aciklama, concat(d.dizin, d.ad) AS img, d.yukseklik AS y, d.genislik AS g')
+	->from('testler AS t, dosyalar AS d')
+	->where()
+	->filtreString('t.cozulme_sayisi > 0')->ve()
+	->filtreString('t.id = d.test_id')->ve()
+	->filtreString('d.ad LIKE "%arama%"')->ve()
+	->filtreString('d.durum_id = 2')
+	->orderby('t.cozulme_sayisi')->azalan()->limit(0, 4)->calistir();
+	
+	if ($talil->etkilenenSatirSayisi > 0)
+	{
+		$en_cok_cozulenler = $talil->sonuc(true)->alMesaj();
+	}
+} 
+catch (exVeritabani $hata){}
+?>
+<?php include_once 'tl_as_ust.phtml';?>
+<div id="dolma" class="arac_cubugu fl_tmr">
+	<?php include_once 'tl_as_menu.phtml'; ?>
+	<div id="icerik" class="fl_tmr">
+		<div id="test_akisi">
+			<div class="akis">
+				<div class="akis_baslik">Son Eklenenler</div>
+				<div class="akis_testler fl_tmr">
+					<?php if (isset($son_eklenenler)):?>
+					<?php 
+						$sayac = 0;
+						foreach($son_eklenenler as $test):
+					?>
+					<div class="test kutu fl_tmr <?php echo ($sayac % 2 == 0) ? 'fl_sl' : 'fl_sg'; ?>" id="<?php echo $test["id"]; ?>">
+						<div class="test_resim_kutu fl_sl">
+							<img src="<?php echo $test["img"];?>" 
+								style="margin-top:<?php echo (110-$test["y"])/2;?>px;margin-left:<?php echo (75-$test["g"])/2;?>px;"/>
+						</div>
+						<div class="test_bilgileri">
+							<p class="tb_etiket"><?php echo $test["etiket"]; ?></p>
+							<p class="tb_aciklama"><?php echo $test["aciklama"]; ?></p>
+						</div>
+						<div class="test_alt_menu">
+							<input type="button" class="btn_gnl fl_sg el_goster" value="Çöz" 
+								   onclick="document.location='test.php?id=<?php echo $test["id"]; ?>'"/>
+						</div> 
+					</div>
+					<?php 
+						$sayac++;
+						endforeach;
+						endif;
+						if (!isset($son_eklenenler)):
+					?>
+					<div class="akis_yok kutu"> <p>Yönetici, yönetici test eklesene! </p></div>
+					<?php endif;?>
+				</div>
+			</div>
+			<div class="akis">
+				<div class="akis_baslik">En Son Çözülenler</div>
+				<div class="akis_testler fl_tmr">
+					<?php if (isset($en_cok_cozulenler)):?>
+					<?php 
+						$sayac = 0;
+						foreach($en_cok_cozulenler as $test):
+					?>
+					<div class="test kutu fl_tmr <?php echo ($sayac % 2 == 0) ? 'fl_sl' : 'fl_sg'; ?>" id="">
+						<div class="test_resim_kutu fl_sl">
+							<img src="<?php echo $test["img"];?>" 
+								style="margin-top:<?php echo (110-$test["y"])/2;?>px;margin-left:<?php echo (75-$test["g"])/2;?>px;"/>
+						</div>
+						<div class="test_bilgileri">
+							<p class="tb_etiket"><?php echo $test["etiket"]; ?></p>
+							<p class="tb_aciklama"><?php echo $test["aciklama"]; ?></p>
+						</div>
+						<div class="test_alt_menu">
+							<input type="button" class="btn_gnl fl_sg el_goster" value="Çöz" 
+								   onclick="document.location='test.php?id=<?php echo $test["id"]; ?>'"/>
+						</div> 
+					</div>
+					<?php 
+						$sayac++;
+						endforeach;
+						endif;
+						if (!isset($en_cok_cozulenler)):
+					?>
+					<div class="akis_yok kutu"> <p>Yönetici, yönetici test eklesene! </p></div>
+					<?php endif;?>
+				</div>
+			</div>
+		</div>
+		<div id="listeler" class="kutu">
+			<div class="liste">
+				<div class="liste_baslik">
+					En Çok Test Çözenler
+				</div>
+				<ul>
+					<li>maemk234</li>
+					<li>aeiğğ3</li>
+					<li>maemieauk234</li>
+					<li>maem uik234</li>
+					<li>maeuie mk234</li>
+					<li>mauie aemk234</li>
+				</ul>
+			</div>
+			<div class="liste">
+				<div class="liste_baslik">
+					En Çok Çözülen Testler
+				</div>
+				<ul>
+					<li>uağa</li>
+					<li>aeui eaiğğ3</li>
+					<li>mauu ie iea3emieauk234</li>
+					<li>maeu ieaum uik234</li>
+					<li>maeu iea uuie mk234</li>
+					<li>mauui eaie aemk234</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
